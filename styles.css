@@ -1,0 +1,138 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+.container{
+	max-width: 1200px;
+	width: 100%;
+	margin: 5px auto;
+}
+.gallery{
+	margin:0px;
+	padding: 0px;
+	list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+/*.gallery > * {
+  padding: 10px;
+}*/
+.gallery li{
+	width: 250px;
+	border: 2px solid #fff;
+	padding: 5px;
+
+}
+.thumbnail{
+	display: flex;
+	list-style: none;
+}	
+.thumbnail li{
+width: 50px;
+border:1px solid #fff;
+padding: 5px;
+margin: 0px 5px;
+cursor: pointer;
+}
+.gallery li img{
+	width:100%;
+	max-width: none;
+  cursor: pointer;
+
+}
+.full-width{
+	width: 100%;
+}
+.move{
+  position: absolute;top: 50%;
+  width: 100%;
+}
+.move a[class^="btn-"]{
+  text-decoration: none;
+  font-size: 30px;
+  padding: 0px 7px;
+  border-radius: 20px;
+  color: #fff;
+}
+.active{
+  border-color: #257fbb!important;
+}
+.btn-prev{
+  position: absolute;
+  left: 8px;
+  border: 1px solid #ddd;
+}
+.btn-next{
+  position: absolute;
+  right: 38px;
+  border: 1px solid #ddd;
+}
+
+/*//*/
+.modal{
+     display: none; //change display property using js
+     position: fixed;
+     left: 0;
+     width: 100%;
+     top: 0;
+     background-color: rgba(0, 0, 0, 0.77);
+     height: 100%;
+     position: absolute;
+
+ }
+ .modal-content{
+  background-color: #f4f4f4;
+ margin: 5% auto;
+ box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),
+   0 7px 20px 0 rgba(0,0,0,0.17);
+  position: relative;
+  animation: modalopen 0.5s ease-in;
+ }
+.modal-header{
+background-color: #257fbb;
+color: #fff;
+padding: 15px;
+ }
+ .modal-footer{
+  background-color: #ddd;
+  color: #fff;
+  padding: 15px;
+ }
+ .modal-body{
+  /*padding: 15px;*/
+  position: relative;
+ }
+/*modal size large, medium and small*/
+ .modal-lg{
+    width: 70%;
+ }
+ .modal-md{
+    width: 50%;
+ }
+ .modal-sm{
+    width: 30%;
+ }
+/*Close button*/
+ .closebtn{
+     color: #fff;
+    position: absolute;
+    font-size: 30px;
+    right: -18px;
+    top: -20px;
+    background-color: #257fbb;
+    padding: 0px 9px;
+    border-radius: 50%;
+    z-index: 1;
+ }
+ .closebtn:hover, .closebtn:focus{
+  text-decoration: none;
+  cursor: pointer;
+  color: #000;
+ }
+ 
+ @keyframes modalopen{
+  from{opacity: 0;transform: translateX(-100%);}
+  to{opacity: 1;transform: translateX(0%);}
+
+ }

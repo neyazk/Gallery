@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gallery </title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+	<ul class="gallery">
+		<li><img id="modalbtn"  src="images/1.jpg"></li>
+		<li><a href="#"><img src="images/2.jpg"></a></li>
+		<li><a href="#"><img src="images/3.jpg"></a></li>
+		<li><a href="#"><img src="images/4.jpg"></a></li>
+		<li><a href="#"><img src="images/5.jpg"></a></li>
+		<li><a href="#"><img src="images/6.jpg"></a></li>
+	</ul>
+
+	<div id="simplemodal" class="modal">
+	 <div class="modal-content modal-md">
+		  <span id="closebtn" class="closebtn">&times;</span>
+		  <div class="modal-body">
+		   	<img src="" id="img-popup" class="full-width">
+		  </div>
+		
+	  <div class="modal-footer">
+	   	<ul class="thumbnail">
+	   		
+	   	</ul>
+	  </div>
+	 </div>
+	 <div class="move">
+			<a href="#" class="btn-prev"> <img class="full-width" src="images/ico-previous.svg" alt="Next"> </a>
+			<a href="#" class="btn-next"> <img class="full-width" src="images/ico-next.svg" alt="Next">  </a>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$('document').ready(function(){
+		var modal=$('#simplemodal');
+		$('.gallery li').on('click', 'img' ,function(){
+			$('.thumbnail').empty();
+			var imgsrc=($(this).attr('src'));
+			$('#img-popup').attr('src', imgsrc);
+
+			$('#simplemodal').css('display', 'block');
+			$('#closebtn').on('click', function(){
+				$('#simplemodal').css('display', 'none');
+			});
+			window.addEventListener('keyup', function(e)
+			{
+			    if (e.keyCode == 27) {
+			       $('#simplemodal').css('display', 'none');
+			    }
+			});
+
+//fetching image in thumbnail
+			$(".gallery li").each(function() { 
+				var currentImage = $('#img-popup').attr('src');
+				var cls='';
+				// console.log(currentImage)
+				var imgsrc = $(this).find('img').attr('src'); 
+				if(currentImage == imgsrc){
+			    	 cls='active';
+
+			    }
+			    $('.thumbnail').append('<li class="'+cls+'"><img class="full-width" src="'+imgsrc+'"></li>');
+
+
+		  	}); 
+
+		  	//image change from thumbnail
+
+			$('.thumbnail li').on('click', 'img' ,function(){
+				$('.thumbnail li').removeClass('active');
+				$(this).parent().addClass('active');
+				var imgsrc=($(this).attr('src'));
+				//$('#img-popup').attr('src', imgsrc);
+				$('#img-popup').fadeOut(300, function(){
+					$('this').attr('src', imgsrc);
+				}).fadeIn(500);
+			});
+			// image change with next and previous
+			$('.btn-next').on('click', function () {
+			   var nextel = ($('.thumbnail li.active').next());
+//			   console.log(nextel);
+
+				var currentImage = $('#img-popup').attr('src');
+//				var next = currentImage.next();
+//				console.log(next);
+            })
+		});
+	});
+</script>
+</body>
+</html>3
